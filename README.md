@@ -22,45 +22,65 @@ Output:
 
 Predicts the 3D coordinates of the folded protein structure.
 Results can be visualized or compared against known structures.
-Getting Started
-Prerequisites
+**Getting Started**
+
+**Prerequisites**
 Python 3.8 or higher
-Libraries:
+**Libraries:**
 Biopython (pip install biopython)
 NumPy (pip install numpy)
 Stable-Baselines3 (pip install stable-baselines3)
 Shimmy (pip install shimmy>=0.2.1)
 Gym (pip install gym)
-Dataset
+
+**Dataset**
+
 Download the UniProt Swiss-Prot dataset (uniprot_sprot.fasta.gz) and place it in the desired directory.
-Running the Model
+
+**Running the Model**
+
 Step 1: Load Protein Sequence
 
 Update file_path in the script to point to the UniProt dataset location.
 The model will load the first protein sequence for folding simulation.
+
 Step 2: Dynamic Programming Initialization
 
 Run the DP module to calculate an approximate low-energy configuration.
 This step is optional and primarily provides a reference.
+
 Step 3: Reinforcement Learning Training
 
 The RL environment (ProteinFoldingEnv) initializes the protein in an unfolded state.
 PPO learns optimal folding strategies by interacting with the environment.
+
 Step 4: Extract Results
 
 After training, the predicted 3D coordinates of the folded structure are saved or printed.
-Key Functions
-get_energy(residue1, residue2, distance): Calculates energy between two residues based on hydrophobicity, charge, and distance.
-ProteinFoldingEnv: Custom RL environment for simulating folding.
-train_rl_model: Trains the RL agent using PPO to learn optimal folding policies.
-Example Output
-plaintext
-Copy code
+
+
+**Key Functions**
+
+**get_energy(residue1, residue2, distance)**: Calculates energy between two residues based on hydrophobicity, charge, and distance.
+
+**ProteinFoldingEnv**: Custom RL environment for simulating folding.
+
+**train_rl_model:** Trains the RL agent using PPO to learn optimal folding policies.
+
+
+**Example Output**
+
 Number of sequences loaded: 1
 Predicted structure coordinates: [[0.0, 0.0, 0.0], [1.5, 0.0, 0.0], ...]
-Future Enhancements
+
+
+
+**Future Enhancements**
+
 Incorporate additional physical constraints, such as torsion angles and secondary structure preferences.
 Extend to multi-sequence analysis and comparative folding validation.
 Improve RL training efficiency using hierarchical or meta-RL approaches.
+
+
 Contact
 For questions or contributions, please reach out via email jugraunaqsingh@gmail.com or submit a pull request.
